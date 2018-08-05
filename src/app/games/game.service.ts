@@ -19,5 +19,13 @@ export class GameService {
     return this._http.get(this.url, {headers: headers});
   }
 
+  createGame(game):Observable<any> {
+    let params = JSON.stringify(game);
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this._http.post(
+      this.url, params, {headers: headers}
+    );
+  }
+
 
 }

@@ -1,0 +1,33 @@
+<div class="well">
+  <form (ngSubmit)="startGame(game)" #startGameForm="ngForm" [hidden]="submitted">
+    <div class="form-group">
+      <label for="player_name">Enter your name</label>
+      <input type="text"
+      class="form-control"
+      id="customer"
+      placeholder="Jane Doe, John Doe..."
+      required
+      name="player_name"
+      #player_name = "ngModel"
+      [(ngModel)]="game.player_name"
+      >
+    </div>
+    <div [hidden]="player_name.valid || player_name.pristine" class="alert alert-danger">
+        Your name is required
+    </div>
+    <button type="submit" class="btn btn-outline-primary btn-lg"
+      [disabled]="!startGameForm.form.valid"
+      >
+        Start game!
+    </button>
+  </form>
+
+  <div  [hidden]="!submitted"
+    class="alert alert-success"
+    role="alert"
+  >
+    <p>
+      {{ game.player_name }}
+    </p>
+  <div>
+</div>

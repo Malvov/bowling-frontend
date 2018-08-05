@@ -1,8 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css';
+@font-face {
+	font-family: "pcsenior";
+	src: url("./assets/fonts/pcsenior.ttf");
+}
 
 body {
+  font-family: "pcsenior" !important;
   margin: 20px;
+  font-size: 1em !important;
 }
 .headline {
     color: white;
