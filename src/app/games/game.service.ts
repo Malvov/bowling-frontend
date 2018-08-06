@@ -6,7 +6,7 @@ import { Game } from './game';
 
 @Injectable()
 export class GameService {
-  private url:string = 'http://localhost:3000/games'
+  private url:string = 'https://bowling-app-api-by-malvov.herokuapp.com/games'
   constructor (
     private _http: HttpClient,
 

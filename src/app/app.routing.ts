@@ -7,10 +7,12 @@ import {PlayGameComponent } from './games/play-game.component';
 
 
 const appRoutes: Routes = [
+  { path: '', component: GameStartComponent },
   { path: 'games', component: GamesComponent },
   { path: 'start-game', component: GameStartComponent },
-  { path: 'play-game/:id', component: PlayGameComponent }
+  { path: 'play-game/:id', component: PlayGameComponent },
+  { path: '**', component: GameStartComponent}
  ];
- 
+
 export const appRoutingProviders: any[] = [];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

@@ -52,7 +52,29 @@
   <div class="col-md-6">
     <h1>
       {{ game.player_name }}
+      <p>{{ game.final_score }}</p>
     </h1>
+    <div class="list-group">
+      <a class="list-group-item list-group-item-action active">
+        <h1 class="headline">
+            This game
+        </h1>
+      </a>
+      <span style="cursor: pointer;" *ngFor="let frame of frames; let i = index" class="list-group-item list-group-item-action">
+        <a class="game-link" >
+          <p class="mb-1">
+            Frame: {{ i + 1 }}
+          </p>
+          <p class="mb-1">
+            First roll: {{ frame.first_roll }}
+          </p>
+          <p class="mb-1">
+            Second roll: {{ frame.second_roll }}
+          </p>
+        </a>
+      </span>
+    </div>
+
   </div>
 
 </div>

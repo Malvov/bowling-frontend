@@ -38,7 +38,7 @@ export class PlayGameComponent implements OnInit, DoCheck {
 
   }
   ngOnInit () {
-    let timer = Observable.timer(0, 10000); // to keep it updated (;
+    let timer = Observable.timer(0, 2000); // to keep it updated (;
     timer.subscribe(
       () => {
         this._route.params.subscribe(params => {
@@ -54,11 +54,10 @@ export class PlayGameComponent implements OnInit, DoCheck {
   getGame(id) {
     this._gameService.getGame(id).subscribe(
       response => {
-        this.frames = response.frames;
         this.game = response.game;
-        console.log(this.game);
-        console.log(this.frames);
-      },
+        this.frames = response.frames;
+        console.log(response);
+       },
       error => {
         console.log(error);
       }
@@ -67,7 +66,6 @@ export class PlayGameComponent implements OnInit, DoCheck {
   }
 
   throwBall(pins:number) {
-
 
     this.pinsLeft -= pins;
 
