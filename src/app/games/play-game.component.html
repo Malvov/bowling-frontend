@@ -17,7 +17,7 @@
           Invalid
       </div>
       <div *ngIf="invalid" class="alert alert-danger">
-        Must be between 0 and 10
+        Must be between 0 and 10, or less than {{ pinsLeft }}
       </div>
 
       <button type="submit" class="btn btn-outline-primary btn-lg"
@@ -33,13 +33,26 @@
       <p>
         Frame: {{ frameCounter }}
       </p>
+      <div *ngIf="strike" class="alert alert-info">
+        Strike!
+      </div>
+      <div *ngIf="spare" class="alert alert-info">
+        Spare!
+      </div>
       <div *ngIf="isFrameOver" class="alert alert-info">
         Frame over!
       </div>
     </div>
   </div>
+  <div [hidden]="!gameOver" class="col-md-6 jumbotron">
+    <h3>
+      Game over!
+    </h3>
+  </div>
   <div class="col-md-6">
-
+    <h1>
+      {{ game.player_name }}
+    </h1>
   </div>
 
 </div>

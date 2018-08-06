@@ -6,7 +6,7 @@ import { Game } from './game';
 
 @Injectable()
 export class GameService {
-  private url:string = 'https://bowling-app-api-by-malvov.herokuapp.com/games'
+  private url:string = 'http://localhost:3000/games'
   constructor (
     private _http: HttpClient,
 
@@ -30,6 +30,15 @@ export class GameService {
     return this._http.post(
       this.url, params, {headers: headers}
     );
+  }
+
+  throwBall(game_id:number, pins:number) {
+    let params = JSON.stringify({game_id: game_id, pins: pins });
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this._http.put(
+      this.url+"/"+game_id+"/"+"throw-ball"+"/"+pins, params, {headers: headers}
+    )
+
   }
 
 
