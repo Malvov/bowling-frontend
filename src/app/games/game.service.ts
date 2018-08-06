@@ -19,7 +19,12 @@ export class GameService {
     return this._http.get(this.url, {headers: headers});
   }
 
-  createGame(game):Observable<any> {
+  getGame(game_id:number):Observable<any> {
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this._http.get(this.url+"/"+game_id, {headers: headers});
+  }
+
+  createGame(game:Game):Observable<any> {
     let params = JSON.stringify(game);
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http.post(

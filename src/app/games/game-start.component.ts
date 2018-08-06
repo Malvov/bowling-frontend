@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
+import { Router } from '@angular/router';
+
 import { Game } from './game';
 import { GameService } from './game.service';
 
@@ -12,9 +14,9 @@ import { GameService } from './game.service';
 export class GameStartComponent implements OnInit {
 
   game = new Game;
-  submitted:boolean = false
   constructor(
-    private _gameService: GameService
+    private _gameService: GameService,
+    private _router: Router
   ) {}
 
   ngOnInit() {
@@ -22,12 +24,12 @@ export class GameStartComponent implements OnInit {
   }
 
   startGame(game) {
-    this.submitted = true;
     this._gameService.createGame(game).subscribe(
       response => {
         game = response;
         console.log(game);
-        return true;
+        let link = ['/play-game', game.id];
+        this._router.navigate(link);
       },
       error => {
         console.log("Error creating game");

@@ -1,5 +1,5 @@
 <div class="well">
-  <form (ngSubmit)="startGame(game)" #startGameForm="ngForm" [hidden]="submitted">
+  <form (ngSubmit)="startGame(game)" #startGameForm="ngForm">
     <div class="form-group">
       <label for="player_name">Enter your name</label>
       <input type="text"
@@ -21,13 +21,4 @@
         Start game!
     </button>
   </form>
-
-  <div  [hidden]="!submitted"
-    class="alert alert-success"
-    role="alert"
-  >
-    <p>
-      {{ game.player_name }}
-    </p>
-  <div>
 </div>

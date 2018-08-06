@@ -1,0 +1,45 @@
+<div class="row">
+  <div *ngIf="!gameOver" class="col-md-6">
+    <form #playGame="ngForm" (ngSubmit)="throwBall(pinsDown)">
+      <div class="form-group">
+        <label for="pins">How many pins down?</label>
+        <input type="number"
+        class="form-control"
+        id="pins"
+        placeholder=""
+        required
+        name="pins"
+        #pins = "ngModel"
+        [(ngModel)]="pinsDown"
+        >
+      </div>
+      <div [hidden]="pins.valid || pins.pristine" class="alert alert-danger">
+          Invalid
+      </div>
+      <div *ngIf="invalid" class="alert alert-danger">
+        Must be between 0 and 10
+      </div>
+
+      <button type="submit" class="btn btn-outline-primary btn-lg"
+        [disabled]="!playGame.form.valid || invalid"
+        >
+          Roll it!
+      </button>
+    </form>
+    <div class="">
+      <p>
+        Pins left: {{ pinsLeft }}
+      </p>
+      <p>
+        Frame: {{ frameCounter }}
+      </p>
+      <div *ngIf="isFrameOver" class="alert alert-info">
+        Frame over!
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+
+</div>
